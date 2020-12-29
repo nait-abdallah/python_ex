@@ -47,7 +47,7 @@ def ex4():
 
 #L'utilisateur donne un entier positif et le programme annonce combien de fois de suite cet entier est divisible par 2.
 def ex5():
-    a = int(print("entrer un nombre"))
+    a = int(input("entrer un nombre"))
     res = 0
     while a !=0 :
         if a % 2 == 0 :
@@ -55,4 +55,4 @@ def ex5():
         else:
             break
     return res            
-ex5()
+print(ex5())
