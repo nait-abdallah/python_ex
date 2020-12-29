@@ -45,14 +45,62 @@ def ex4():
     else :
         return "impair"     
 
-#L'utilisateur donne un entier positif et le programme annonce combien de fois de suite cet entier est divisible par 2.
+#L'utilisateur donne un entier positif et le programme annonce combien de fois 
+# de suite cet entier est divisible par 2.
 def ex5():
-    a = int(input("entrer un nombre"))
-    res = 0
-    while a !=0 :
-        if a % 2 == 0 :
-            res += 1
-        else:
+    b = 0 #conteur de combien de fois il est divisible 
+    while True:
+        try:
+            a = int (input("entrer un nombre positif : "))
             break
-    return res            
-print(ex5())
+        except:
+            print("ereur dans la saisi 'entrer un nombre ' !!!")
+    print("le nombre ",a," est divisible par 2 : ")   
+    while a != 0:
+        if a%2==0:
+            a /= 2
+            b += 1
+        else: break  
+    print(b," fois .")       
+
+#L'utilisateur donne un entier supérieur à 1 et le programme affiche, 
+# s'il y en a, tous ses diviseurs propres sans répétition ainsi que leur nombre. 
+# S'il n'y en a pas, il indique qu'il est premier.
+def ex6():
+    # -*- coding : utf8 -*-
+    """Diviseurs propres d'un entier."""
+
+    # Programme principal =========================================================
+    n = int(input("Entrez un entier strictement positif :"))
+    while n < 1:
+        n = int(input("Entrez un entier STRICTEMENT POSITIF, s.v.p. :"))
+
+    i = 2 # plus petit diviseur possible de n
+    cpt = 0 # initialise le compteur de divisions
+    p = n/2 # calculé une fois dans la boucle
+
+    print("Diviseurs propres sans répétition de", n, " :", end=' ')
+    while i <= p :
+        if n%i == 0:
+            cpt += 1
+            print(i, end=' ')
+        i += 1
+
+    if not cpt :
+        print("aucun ! Il est premier.")
+    else :
+        print("(soit", cpt, "diviseurs propres)")
+            
+# Un gardien de phare va aux toilettes cinq fois par jour. Or les WC sont au rez-de-chaussée…
+# Écrire une procédure (donc sans return) hauteurParcourue qui reçoit deux paramètres, le nombre
+#   de marches du phare et la hauteur de chaque marche (en cm), et qui affiche :
+# Sélectionnez
+# Pour x marches de y cm, il parcourt z.zz m par semaine.
+# On n'oubliera pas :
+# qu'une semaine comporte 7 jours ;
+# qu'une fois en bas, le gardien doit remonter ;
+# que le résultat est à exprimer en m
+def ex7(Nb_de_marche,H_de_marche):
+    res = Nb_de_marche*H_de_marche*2*5*7*(10**(-2))
+    print("pour ",Nb_de_marche," de ",H_de_marche," cm, il parcourt ",res," m par semaine .")
+
